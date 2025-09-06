@@ -1,77 +1,139 @@
 /* General styles */
+/*html, body {
+  height: 100%;
+  margin: 0;
+}*/
+
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+  font-family: 'proxima nova';
+  color: #111;
+  background: url("Img/Background.png") center center no-repeat;
+  background-size: cover;
+
 }
 
-/* Navbar */
-nav {
-  background-color: #e0e0e0;
-  padding: 1rem 2rem;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 1.5rem;
-}
-
-nav ul li {
-  display: inline;
-}
-
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: #555;
-}
-
-/* Hero Section */
+/* HERO background */
 .hero {
-  display: flex;
-  flex-direction: column;
+  /* your background image */
+  background: url('Img/Background.png') no-repeat center/cover;
+  padding: clamp(24px, 5vw, 56px) 16px;
+}
+
+/* 2-column layout like the mockup */
+.hero-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 80vh;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;   /* text a bit wider than image */
+  gap: clamp(10px, 7vw, 48px);
   align-items: center;
-  justify-content: center;
-  height: 80vh;
+}
+
+/* LEFT column content */
+.hero-copy {
+  display: grid;
+  gap: 14px;
+  justify-items: center;      /* centers headline/stat like the screenshot */
   text-align: center;
-  background-image: url('https://images.pexels.com/photos/414659/pexels-photo-414659.jpeg');
-  padding: 2rem;
 }
 
-.hero img {
-  object-fit: cover;
-  height: 100px;
-  width: 100px;
+.headline {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 60px);
+  line-height: 1.08;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+.stat {
+  margin: 4px 0 8px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
+.lede {
+  max-width: 52ch;
 }
 
-.hero button {
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+.fineprint {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* CTA button (yellow pill) */
+.btn {
+  appearance: none;
+  border: 0;
   cursor: pointer;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  padding: 14px 22px;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  transition: transform .18s ease, background-color .18s ease;
+}
+.btn-cta {
+  background: #ffd33b;          /* charity: water yellow */
+}
+.btn-cta:hover {
+  background: #f3bf00;
+  transform: translateY(-2px);
 }
 
-.hero button:hover {
-  background-color: #555;
+/* RIGHT column image card */
+.photo-card {
+  width: clamp(460px, 44vw, 640px);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  margin: 0;                    /* reset figure default margins */
 }
+.photo-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;          /* keeps the 4:3 crop like your mockup */
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile: stack and center everything */
+@media (max-width: 960px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .photo-card { width: min(92vw, 560px); }
+}
+
+/* Top-left logo header */
+.site-header {
+  position: fixed;      /* stays at top as you scroll */
+  top: 16px;
+  left: 20px;
+  z-index: 1000;        /* above hero content */
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  width: 180px;          /* tweak to match your screenshot */
+  height: auto;
+  display: block;
+}
+
+/* Keep it neat on small screens */
+@media (max-width: 520px) {
+  .logo { width: 26px; }
+  .brand-name { font-size: 14px; }
+}
+
