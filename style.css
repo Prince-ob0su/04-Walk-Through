@@ -7,11 +7,11 @@
 
 body {
   margin: 0;
+  height: 100%;
   font-family: 'proxima nova';
   color: #111;
-  background: url("Img/Background.png") center center no-repeat;
+  background: linear-gradient(rgba(255, 255, 255, 0.116), rgba(255, 255, 255, 0.219)), url("Img/Background.png") center center no-repeat;
   background-size: cover;
-
 }
 
 /* HERO background */
@@ -19,6 +19,7 @@ body {
   /* your background image */
   background: url('Img/Background.png') no-repeat center/cover;
   padding: clamp(24px, 5vw, 56px) 16px;
+
 }
 
 /* 2-column layout like the mockup */
@@ -28,8 +29,8 @@ body {
   min-height: 80vh;
 
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;   /* text a bit wider than image */
-  gap: clamp(10px, 7vw, 48px);
+  grid-template-columns: 1fr 1fr;   /* text a bit wider than image */
+  gap: clamp(100px, 30vw, 400px);
   align-items: center;
 }
 
@@ -37,7 +38,7 @@ body {
 .hero-copy {
   display: grid;
   gap: 14px;
-  justify-items: center;      /* centers headline/stat like the screenshot */
+  justify-items: center;      
   text-align: center;
 }
 
@@ -77,10 +78,34 @@ body {
   transition: transform .18s ease, background-color .18s ease;
 }
 .btn-cta {
+  color: #111;
+  text-decoration: none;
   background: #ffd33b;          /* charity: water yellow */
 }
 .btn-cta:hover {
   background: #f3bf00;
+  transform: translateY(-2px);
+}
+.top-right-btn {
+  position: absolute;      /* use fixed if you want it to stay on scroll */
+  top: 20px;
+  right: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'proxima nova';
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #111;             /* dark text */
+  text-decoration: none;   /* no underline */
+  background: #ffd33b;     /* charity: water yellow */
+  border-radius: 999px;    /* pill shape */
+  padding: 12px 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  transition: transform .18s ease, background-color .18s ease;
+}
+
+.top-right-btn:hover {
+  background: #f3bf00;     /* darker yellow hover */
   transform: translateY(-2px);
 }
 
@@ -126,7 +151,7 @@ body {
 }
 
 .logo {
-  width: 180px;          /* tweak to match your screenshot */
+  width: 180px;          
   height: auto;
   display: block;
 }
